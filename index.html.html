@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Estúdio de manicure e pedicure premium. Unhas impecáveis, atendimento personalizado e produtos de alta qualidade. Agende seu horário.">
+    <title>Rosé Nail Studio — Manicure & Pedicure Premium</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --rose: #c48b8b;
+            --rose-dark: #a86f6f;
+            --rose-light: #e8d5d5;
+            --rose-pale: #f7f0f0;
+            --white: #ffffff;
+            --off-white: #fdfbfb;
+            --gray-light: #f5f3f3;
+            --gray: #d9d4d4;
+            --gray-text: #7a7676;
+            --dark: #3d3939;
+            --dark-soft: #5c5757;
+            --shadow-sm: 0 2px 12px rgba(60, 40, 40, 0.06);
+            --shadow-md: 0 8px 32px rgba(60, 40, 40, 0.10);
+            --shadow-lg: 0 16px 48px rgba(60, 40, 40, 0.14);
+            --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --border-radius: 14px;
+            --border-radius-lg: 22px;
+            --max-width: 1240px;
+            --header-height: 80px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--off-white);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* === TIPOGRAFIA === */
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--dark);
+        }
+
+        h1 {
+            font-size: clamp(2.8rem, 6vw, 4.4rem);
+            line-height: 1.15;
+            font-weight: 500;
+        }
+        h2 {
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            line-height: 1.25;
+            margin-bottom: 0.6rem;
+        }
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+        p {
+            font-weight: 400;
+            color: var(--dark-soft);
+        }
+
+        .section-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--rose);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* === HEADER === */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(200, 170, 170, 0.18);
+            transition: all var(--transition-smooth);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow-sm);
+            background: rgba(255, 255, 255, 0.94);
+        }
+
+        .header-container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--rose-light), var(--rose));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2.4rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--dark-soft);
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            position: relative;
+            transition: color var(--transition-smooth);
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--rose);
+            transition: width var(--transition-smooth);
+            border-radius: 1px;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--rose-dark);
+        }
+        .nav a:hover::after,
+        .nav a.active::after {
+            width: 100%;
+        }
+
+        .btn-whatsapp-header {
+            background: transparent;
+            border: 1.5px solid var(--rose);
+            color: var(--rose-dark);
+            padding: 0.65rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 0.88rem;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            white-space: nowrap;
+        }
+
+        .btn-whatsapp-header:hover {
+            background: var(--rose);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            padding: 8px;
+            z-index: 1001;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--dark);
+            border-radius: 2px;
+            transition: all var(--transition-smooth);
+        }
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        /* === HERO === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: var(--header-height);
+            background: linear-gradient(155deg, #fdf9f9 0%, #f9f2f2 30%, #fdfbfb 60%, #fff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-pattern {
+            position: absolute;
+            top: -15%;
+            right: -8%;
+            width: 55%;
+            height: 130%;
+            background: radial-gradient(ellipse at center, rgba(232, 213, 213, 0.5) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatBg 14s ease-in-out infinite;
+        }
+        @keyframes floatBg {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(-2%, 2%) scale(1.04);
+            }
+            66% {
+                transform: translate(1%, -1%) scale(0.97);
+            }
+        }
+
+        .hero-container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero-content .section-subtitle {
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-content h1 {
+            margin-bottom: 1.2rem;
+        }
+        .hero-content h1 em {
+            font-style: italic;
+            color: var(--rose-dark);
+            font-weight: 500;
+        }
+
+        .hero-content p {
+            font-size: 1.12rem;
+            color: var(--gray-text);
+            margin-bottom: 2.2rem;
+            max-width: 460px;
+            line-height: 1.8;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--rose);
+            color: white;
+            padding: 1rem 2.4rem;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-bounce);
+            box-shadow: 0 6px 24px rgba(168, 111, 111, 0.28);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+            border-radius: 50px;
+            transition: opacity var(--transition-smooth);
+        }
+        .btn-primary:hover {
+            background: var(--rose-dark);
+            transform: translateY(-4px);
+            box-shadow: 0 14px 36px rgba(168, 111, 111, 0.36);
+        }
+        .btn-primary:hover::before {
+            opacity: 0.6;
+        }
+        .btn-primary:active {
+            transform: translateY(-1px) scale(0.97);
+            transition: 0.1s;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            animation: fadeInUp 1s ease 0.25s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            max-width: 520px;
+            border-radius: var(--border-radius-lg);
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+            transition: transform var(--transition-smooth);
+            margin: 0 auto;
+            display: block;
+        }
+        .hero-image:hover {
+            transform: scale(1.02);
+        }
+        .hero-image-decor {
+            position: absolute;
+            bottom: -28px;
+            left: -28px;
+            width: 140px;
+            height: 140px;
+            border: 2px solid var(--rose-light);
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulseDecor 5s ease-in-out infinite;
+        }
+        @keyframes pulseDecor {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.12);
+                opacity: 0.25;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(36px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* === SEÇÕES GERAIS === */
+        .section {
+            padding: 6rem 2rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-header h2 {
+            margin-bottom: 0.5rem;
+        }
+        .section-header p {
+            color: var(--gray-text);
+            max-width: 560px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        /* === SOBRE === */
+        .sobre {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 5rem 3rem;
+            margin: 2rem auto;
+            max-width: var(--max-width);
+            box-shadow: var(--shadow-sm);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .sobre-image {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+        .sobre-content h2 {
+            margin-bottom: 1.2rem;
+        }
+        .sobre-content p {
+            margin-bottom: 1rem;
+            font-size: 1.02rem;
+        }
+        .sobre-destaques {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.4rem;
+            margin-top: 2rem;
+        }
+        .sobre-destaque {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 500;
+            font-size: 0.94rem;
+            color: var(--dark-soft);
+        }
+        .sobre-destaque .icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--rose-pale);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        /* === SERVIÇOS === */
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+        .servico-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-bounce);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+        .servico-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--rose-light), var(--rose));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-smooth);
+            border-radius: 0 0 4px 4px;
+        }
+        .servico-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        .servico-card:hover::after {
+            transform: scaleX(1);
+        }
+        .servico-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+            display: block;
+            transition: transform var(--transition-bounce);
+        }
+        .servico-card:hover .servico-icon {
+            transform: scale(1.15) rotate(-4deg);
+        }
+        .servico-card h3 {
+            margin-bottom: 0.6rem;
+        }
+        .servico-card p {
+            font-size: 0.92rem;
+            color: var(--gray-text);
+            line-height: 1.6;
+        }
+
+        /* === DEPOIMENTOS === */
+        .depoimentos {
+            background: var(--rose-pale);
+            border-radius: var(--border-radius-lg);
+            padding: 5rem 2rem;
+            margin: 2rem auto;
+            max-width: var(--max-width);
+        }
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .depoimento-card {
+            background: var(--white);
+            padding: 2.2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-smooth);
+        }
+        .depoimento-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        .stars {
+            color: #e0b668;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.8rem;
+        }
+        .depoimento-texto {
+            font-style: italic;
+            color: var(--dark-soft);
+            margin-bottom: 1.4rem;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+        .depoimento-autor {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .depoimento-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--rose-light);
+        }
+        .depoimento-nome {
+            font-weight: 600;
+            font-size: 0.94rem;
+            color: var(--dark);
+        }
+        .depoimento-tag {
+            font-size: 0.8rem;
+            color: var(--gray-text);
+        }
+
+        /* === GALERIA === */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        .galeria-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 1 / 1;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-bounce);
+        }
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .galeria-item:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-6px);
+        }
+        .galeria-item:hover img {
+            transform: scale(1.08);
+        }
+        .galeria-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(168, 111, 111, 0.55) 0%, transparent 55%);
+            opacity: 0;
+            transition: opacity var(--transition-smooth);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.4rem;
+            color: white;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+        }
+        .galeria-item:hover .galeria-overlay {
+            opacity: 1;
+        }
+
+        /* === CTA === */
+        .cta-section {
+            background: linear-gradient(145deg, var(--rose) 0%, var(--rose-dark) 100%);
+            border-radius: var(--border-radius-lg);
+            padding: 5rem 3rem;
+            text-align: center;
+            max-width: var(--max-width);
+            margin: 3rem auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -15%;
+            width: 55%;
+            height: 160%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        .cta-content h2 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+        }
+        .cta-content p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 2.2rem;
+        }
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: white;
+            color: var(--rose-dark);
+            padding: 1.1rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.08rem;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            transition: all var(--transition-bounce);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .btn-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+            background: #fffdfd;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.75);
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+        .footer-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.4rem;
+            text-align: left;
+        }
+        .footer h4 {
+            color: white;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        .footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color var(--transition-smooth);
+            font-size: 0.9rem;
+        }
+        .footer a:hover {
+            color: var(--rose-light);
+        }
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.6rem;
+            font-size: 1.3rem;
+        }
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.5);
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        /* === WHATSAPP FLUTUANTE === */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4);
+            transition: all var(--transition-bounce);
+            text-decoration: none;
+            animation: pulseWhats 2.5s ease-in-out infinite;
+        }
+        @keyframes pulseWhats {
+            0%,
+            100% {
+                box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 44px rgba(37, 211, 102, 0.7), 0 0 0 16px rgba(37, 211, 102, 0.08);
+            }
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.12);
+            box-shadow: 0 14px 40px rgba(37, 211, 102, 0.55);
+        }
+
+        /* === ANIMAÇÕES REVEAL === */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        /* === RESPONSIVO === */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            .hero-content p {
+                margin: 0 auto 2rem;
+                max-width: 440px;
+            }
+            .hero-image-wrapper {
+                order: -1;
+                max-width: 380px;
+                margin: 0 auto;
+            }
+            .hero-image-decor {
+                display: none;
+            }
+            .sobre {
+                grid-template-columns: 1fr;
+                padding: 3rem 2rem;
+                gap: 2rem;
+            }
+            .sobre-image {
+                aspect-ratio: 3/2;
+                max-height: 320px;
+            }
+            .galeria-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                max-width: 340px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 6rem 2.5rem 2rem;
+                gap: 2rem;
+                box-shadow: var(--shadow-lg);
+                transition: right var(--transition-smooth);
+                z-index: 1000;
+            }
+            .nav.open {
+                right: 0;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .btn-whatsapp-header {
+                display: none;
+            }
+            .galeria-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
+            }
+            .cta-section {
+                padding: 3.5rem 1.8rem;
+                margin: 2rem 1rem;
+                border-radius: var(--border-radius);
+            }
+            .section {
+                padding: 4rem 1.2rem;
+            }
+            .sobre {
+                margin: 1rem;
+                border-radius: var(--border-radius);
+            }
+            .depoimentos {
+                margin: 1rem;
+                border-radius: var(--border-radius);
+                padding: 3rem 1.2rem;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+                bottom: 18px;
+                right: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .servicos-grid {
+                grid-template-columns: 1fr;
+            }
+            .depoimentos-grid {
+                grid-template-columns: 1fr;
+            }
+            .galeria-grid {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-social {
+                justify-content: center;
+            }
+            .btn-primary,
+            .btn-cta {
+                padding: 0.9rem 2rem;
+                font-size: 0.94rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#" class="logo" aria-label="Rosé Nail Studio">
+                <span class="logo-icon">🌹</span>
+                Rosé Studio
+            </a>
+            <nav class="nav" id="nav">
+                <a href="#inicio" class="active">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#contato">Contato</a>
+                <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C+Quero+agendar+um+hor%C3%A1rio+no+Ros%C3%A9+Studio" class="btn-whatsapp-header" target="_blank" rel="noopener">
+                    💬 Agendar
+                </a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="section-subtitle">Bem-vinda ao Rosé Studio</p>
+                <h1>Unhas impecáveis<br>que <em>valorizam</em><br>sua beleza</h1>
+                <p>Manicure e pedicure premium com atendimento personalizado, produtos importados e um ambiente pensado para o seu bem-estar.</p>
+                <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C+Quero+agendar+meu+hor%C3%A1rio+no+Ros%C3%A9+Studio" class="btn-primary" target="_blank" rel="noopener">
+                    ✨ Agende seu horário
+                </a>
+            </div>
+            <div class="hero-image-wrapper">
+                <img
+                src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700&q=80"
+                alt="Unhas impecáveis em rose suave"
+                class="hero-image"
+                loading="eager"
+                >
+                <div class="hero-image-decor"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SOBRE ========== -->
+    <section class="sobre reveal" id="sobre">
+        <img
+        src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80"
+        alt="Ambiente do estúdio Rosé"
+        class="sobre-image"
+        loading="lazy"
+        >
+        <div class="sobre-content">
+            <p class="section-subtitle">Nosso estúdio</p>
+            <h2>Excelência e cuidado em cada detalhe</h2>
+            <p>No <strong>Rosé Nail Studio</strong>, cada atendimento é uma experiência única. Trabalhamos com os melhores produtos do mercado, protocolos rigorosos de higiene e um olhar atento às tendências.</p>
+            <p>Nosso espaço foi projetado para oferecer conforto, privacidade e um ambiente acolhedor — ideal para quem valoriza qualidade sem abrir mão da elegância.</p>
+            <div class="sobre-destaques">
+                <div class="sobre-destaque">
+                    <span class="icon-circle">🛡️</span> Esterilização completa
+                </div>
+                <div class="sobre-destaque">
+                    <span class="icon-circle">🌿</span> Produtos veganos premium
+                </div>
+                <div class="sobre-destaque">
+                    <span class="icon-circle">👤</span> Atendimento individual
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SERVIÇOS ========== -->
+    <section class="section" id="servicos">
+        <div class="section-header reveal">
+            <p class="section-subtitle">Nossos serviços</p>
+            <h2>Tratamentos exclusivos</h2>
+            <p>Do clássico ao contemporâneo, oferecemos serviços pensados para realçar sua beleza natural.</p>
+        </div>
+        <div class="servicos-grid">
+            <div class="servico-card reveal reveal-delay-1">
+                <span class="servico-icon">💅</span>
+                <h3>Manicure Clássica</h3>
+                <p>Cutilagem impecável, hidratação intensa e esmaltação com acabamento profissional.</p>
+            </div>
+            <div class="servico-card reveal reveal-delay-2">
+                <span class="servico-icon">✨</span>
+                <h3>Esmaltação em Gel</h3>
+                <p>Alta durabilidade e brilho intenso com os melhores géis do mercado internacional.</p>
+            </div>
+            <div class="servico-card reveal reveal-delay-3">
+                <span class="servico-icon">🦶</span>
+                <h3>Pedicure Premium</h3>
+                <p>Cuidados completos com os pés, esfoliação e massagem relaxante.</p>
+            </div>
+            <div class="servico-card reveal reveal-delay-4">
+                <span class="servico-icon">🧖‍♀️</span>
+                <h3>Spa dos Pés</h3>
+                <p>Imersão aromática, máscara hidratante e massagem com pedras quentes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DEPOIMENTOS ========== -->
+    <section class="depoimentos reveal" id="depoimentos">
+        <div class="section-header">
+            <p class="section-subtitle">Depoimentos</p>
+            <h2>Quem confia no Rosé</h2>
+        </div>
+        <div class="depoimentos-grid">
+            <div class="depoimento-card reveal reveal-delay-1">
+                <div class="stars">★★★★★</div>
+                <p class="depoimento-texto">"Simplesmente o melhor estúdio que já frequentei. Atendimento impecável, ambiente lindo e minhas unhas duraram semanas!"</p>
+                <div class="depoimento-autor">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Fernanda" class="depoimento-avatar" loading="lazy">
+                    <div>
+                        <div class="depoimento-nome">Fernanda Oliveira</div>
+                        <div class="depoimento-tag">Cliente há 2 anos</div>
+                    </div>
+                </div>
+            </div>
+            <div class="depoimento-card reveal reveal-delay-2">
+                <div class="stars">★★★★★</div>
+                <p class="depoimento-texto">"O spa dos pés é uma experiência à parte. Saí renovada! Higiene nota mil e produtos de altíssima qualidade."</p>
+                <div class="depoimento-autor">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80" alt="Camila" class="depoimento-avatar" loading="lazy">
+                    <div>
+                        <div class="depoimento-nome">Camila Sartori</div>
+                        <div class="depoimento-tag">Cliente desde 2023</div>
+                    </div>
+                </div>
+            </div>
+            <div class="depoimento-card reveal reveal-delay-3">
+                <div class="stars">★★★★★</div>
+                <p class="depoimento-texto">"Ambiente super elegante e acolhedor. Cada detalhe foi pensado com carinho. Recomendo de olhos fechados!"</p>
+                <div class="depoimento-autor">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Juliana" class="depoimento-avatar" loading="lazy">
+                    <div>
+                        <div class="depoimento-nome">Juliana Costa</div>
+                        <div class="depoimento-tag">Cliente fidelizada</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== GALERIA ========== -->
+    <section class="section" id="galeria">
+        <div class="section-header reveal">
+            <p class="section-subtitle">Portfólio</p>
+            <h2>Nosso trabalho</h2>
+            <p>Inspire-se com alguns dos nossos trabalhos recentes.</p>
+        </div>
+        <div class="galeria-grid">
+            <div class="galeria-item reveal reveal-delay-1">
+                <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=500&q=80" alt="Unhas em gel rose" loading="lazy">
+                <div class="galeria-overlay">Esmaltação em Gel · Rose</div>
+            </div>
+            <div class="galeria-item reveal reveal-delay-2">
+                <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=500&q=80" alt="Spa dos pés" loading="lazy">
+                <div class="galeria-overlay">Spa dos Pés · Relaxamento</div>
+            </div>
+            <div class="galeria-item reveal reveal-delay-3">
+                <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=500&q=80" alt="Manicure clássica" loading="lazy">
+                <div class="galeria-overlay">Manicure Clássica · Nude</div>
+            </div>
+            <div class="galeria-item reveal reveal-delay-1">
+                <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=500&q=80" alt="Esmaltes premium" loading="lazy">
+                <div class="galeria-overlay">Produtos Premium</div>
+            </div>
+            <div class="galeria-item reveal reveal-delay-2">
+                <img src="https://images.unsplash.com/photo-1610992015732-2449b0bb0a86?w=500&q=80" alt="Unhas decoradas" loading="lazy">
+                <div class="galeria-overlay">Nail Art · Elegância</div>
+            </div>
+            <div class="galeria-item reveal reveal-delay-3">
+                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&q=80" alt="Ambiente studio" loading="lazy">
+                <div class="galeria-overlay">Nosso Espaço · Conforto</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="cta-section reveal" id="contato">
+        <div class="cta-content">
+            <h2>Pronta para elevar sua autoestima?</h2>
+            <p>Agende agora mesmo seu horário e descubra o prazer de um atendimento verdadeiramente premium.</p>
+            <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C+Quero+agendar+meu+hor%C3%A1rio+no+Ros%C3%A9+Studio" class="btn-cta" target="_blank" rel="noopener">
+                💬 Agendar pelo WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <h4>Rosé Nail Studio</h4>
+                <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;">Manicure & Pedicure Premium</p>
+                <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;">📍 São Paulo, SP — Jardins</p>
+            </div>
+            <div>
+                <h4>Links</h4>
+                <p><a href="#inicio">Início</a></p>
+                <p><a href="#sobre">Sobre</a></p>
+                <p><a href="#servicos">Serviços</a></p>
+                <p><a href="#galeria">Galeria</a></p>
+            </div>
+            <div>
+                <h4>Contato</h4>
+                <p><a href="tel:+5511999999999">(11) 99999-9999</a></p>
+                <p><a href="mailto:contato@rosestudio.com">contato@rosestudio.com</a></p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram">📸</a>
+                    <a href="#" aria-label="WhatsApp">💬</a>
+                    <a href="#" aria-label="Pinterest">📌</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Rosé Nail Studio. Todos os direitos reservados. · Design by Agência Premium
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== WHATSAPP FLUTUANTE ========== -->
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C+Quero+agendar+meu+hor%C3%A1rio+no+Ros%C3%A9+Studio" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Agendar via WhatsApp">
+        💬
+    </a>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script>
+        (function() {
+            // --- Header scroll effect ---
+            const header = document.getElementById('header');
+            const menuToggle = document.getElementById('menuToggle');
+            const nav = document.getElementById('nav');
+            const navLinks = nav.querySelectorAll('a');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // --- Menu mobile ---
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                nav.classList.toggle('open');
+            });
+
+            // Fechar menu ao clicar em link
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (nav.classList.contains('open')) {
+                        menuToggle.classList.remove('active');
+                        nav.classList.remove('open');
+                    }
+                });
+            });
+
+            // --- Atualizar link ativo no scroll ---
+            const sections = document.querySelectorAll('section[id]');
+            window.addEventListener('scroll', () => {
+                let scrollPos = window.scrollY + 120;
+                sections.forEach(section => {
+                    const top = section.offsetTop;
+                    const height = section.offsetHeight;
+                    const id = section.getAttribute('id');
+                    const correspondingLink = nav.querySelector(`a[href="#${id}"]`);
+                    if (correspondingLink && scrollPos >= top && scrollPos < top + height) {
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        correspondingLink.classList.add('active');
+                    }
+                });
+            });
+
+            // --- Reveal on scroll (Intersection Observer) ---
+            const revealElements = document.querySelectorAll('.reveal');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -60px 0px',
+                threshold: 0.1
+            };
+
+            const revealCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(revealCallback, observerOptions);
+            revealElements.forEach(el => observer.observe(el));
+
+            // --- Smooth scroll para links internos (fallback) ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        const headerHeight = document.getElementById('header').offsetHeight;
+                        const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset -
+                            headerHeight - 10;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+        })();
+    </script>
+</body>
+</html>
